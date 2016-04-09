@@ -14,7 +14,9 @@ class TestTicTacToe <Minitest::Test
 		assert_equal([1, 2, 3, 4, 5, "O", 7, 8, 9], update_board([1, 2, 3, 4, 5, "X", 7, 8, 9], 5, "O"))
 	end
 
-
+ 	def test_position_is_valid
+ 		assert_equal(false, validating_position?([1, 2, 3, 4, 5, "X", 7, 8, 9], 5, "X"))
+	end
 
 
 end	
