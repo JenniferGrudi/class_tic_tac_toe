@@ -18,5 +18,23 @@ class TestTicTacToe <Minitest::Test
  		assert_equal(false, validating_position?([1, 2, 3, 4, 5, "X", 7, 8, 9], 5, "X"))
 	end
 
+	def test_winning_game
+		assert_equal(true, winner?(["X", "X", "X", 4, 5, 6, 7, 8, 9], "X"))
+		assert_equal(true, winner?(["X", 2, 3, 4, "X", 6, 7, 8, "X"], "X"))
+		assert_equal(true, winner?([1, 2, 3, 4, 5, 6, "O", "O", "O"], "O"))
+		assert_equal(false, winner?([1, "O", 3, "O", 5, 6, "O", 8, 9], "O"))
+	end	
+
+	def test_cats_game
+		assert_equal(true, cats_game?(["X", "X", "O", "O", "X", "X", "X", "O", "O"]))
+		assert_equal(false, cats_game?(["X", 2, 3, 4, "X", 6, 7, 8, "X"]))
+	end		
+
+	def test_game_is_over
+	 	assert_equal(true, game_over?([1,2, "X",4,5,"X", 7,8, "X"], "X"))
+	 	assert_equal(true, game_over?(["O", "X", "X", "O", "O", "X", "X", "O", "X"], "X"))
+	 	
+	end 		
+
 
 end	
