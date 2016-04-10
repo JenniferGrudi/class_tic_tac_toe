@@ -34,7 +34,13 @@ class TestTicTacToe <Minitest::Test
 	 	assert_equal(true, game_over?([1,2, "X",4,5,"X", 7,8, "X"], "X"))
 	 	assert_equal(true, game_over?(["O", "X", "X", "O", "O", "X", "X", "O", "X"], "X"))
 	 	
-	end 		
+	end
+
+	def test_available_spaces
+		assert_equal([1, 2, 3], get_available_spaces([1, 2, 3, "O", "O", "X", "X", "O", "X"]))
+		assert_equal([4, 5, 6], get_available_spaces(["O", "X", "X",4 ,5,6,"X", "O", "X"]))
+	end
+
 
 
 end	
