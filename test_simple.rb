@@ -1,5 +1,5 @@
 require "minitest/autorun"
-require_relative "rubbish.rb"
+require_relative "Simple.rb"
 
 class TestRubbish <Minitest::Test
 
@@ -8,6 +8,3 @@ class TestRubbish <Minitest::Test
 		assert_equal(5, get_move(["O", "X", "O", "X", 5, "X", "X", "O", "O"]))
 	end	
 end	
-
-
-#create game loop

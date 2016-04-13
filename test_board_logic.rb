@@ -1,5 +1,5 @@
 require "minitest/autorun"
-require_relative "tic_tac_toe.rb"
+require_relative "board_logic.rb"
 
 class TestTicTacToe <Minitest::Test
 

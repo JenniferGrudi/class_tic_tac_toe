@@ -38,7 +38,7 @@ end
 
  def game_over?(board, marker)
  	winner?(board, marker) || 
-	cats_game(board)
+	cats_game?(board)
 end		
 
 def get_available_spaces(board)
