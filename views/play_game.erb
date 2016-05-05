@@ -1,0 +1,50 @@
+Player one has chosen <%=p1_marker%>, So Player two you will be <%=p2_marker%>.
+<br>
+<h4><b>GAME ON!</b></h4>
+<br>
+
+Here is the board:
+<br>
+<form action = "/play_game" method="post">
+	<table style = "width:5%"; rules="all">
+		
+		<tr>
+ 			<td><%=board[0]%></td>
+ 			<td><%=board[1]%></td>
+ 			<td><%=board[2]%></td>
+ 		</tr>
+ 	
+ 		<tr>
+ 			<td><%=board[3]%></td>
+ 			<td><%=board[4]%></td>
+ 			<td><%=board[5]%></td>
+ 		</tr>
+
+ 		<tr>
+ 			<td><%=board[6]%></td>
+ 			<td><%=board[7]%></td>
+ 			<td><%=board[8]%></td>
+ 		</tr>
+ 		
+ 	</table> 
+<br> 	
+Player one: Pick a spot and good luck!
+<br>
+ 		<select name="first_move">
+  			<option value="1">1</option>
+  			<option value="2">2</option>
+  			<option value="3">3</option>
+  			<option value="4">4</option>
+	  		<option value="5">5</option>
+	  		<option value="6">6</option>
+	  		<option value="7">7</option>
+	  		<option value="8">8</option>
+	  		<option value="9">9</option>
+		</select>
+<br>
+
+
+<input type="submit"> 	 
+
+</form>
+

@@ -12,7 +12,6 @@ class TestPlayers <Minitest::Test
 		#look up minitest assertions
 		assert_includes([1,2,3], get_move([1 , 2, 3, "X", "X", "X", "X", "O", "O"]))
 		refute_includes([4,5,6,7], get_move([1 , 2, 3, "X", "X", "X", "X", "O", "O"]))
-
 	end	
 
 end	

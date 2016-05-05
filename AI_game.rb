@@ -13,7 +13,5 @@ def play_game()
 		move_two = get_move_seq(board)
 		board = update_board(board, move_two - 1, player_two)
 	end
-	puts board
 	game_over?(board, player_one) == 1 || game_over?(board, player_two) == true	 
-end
-play_game	
+end	
