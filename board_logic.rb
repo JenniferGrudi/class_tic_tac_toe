@@ -45,7 +45,7 @@ def get_available_spaces(board)
 	available_spaces = []
 	board.each do |value| 
 		if value.is_a?(Fixnum)
-			available_spaces << value
+			available_spaces << value-1
 		end
 	end
 	available_spaces

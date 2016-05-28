@@ -1,14 +1,29 @@
-<h2>Let's play a game!</h2>
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Tic-Tac-Toe Game</title>
+	</head>
+</html>
 
-<form action="/human" method="post">
-	<input type = "radio" name = "choice" value = "1"><%=board[0]%>
-	<input type = "radio" name = "choice" value = "2"><%=board[1]%>
-	<input type = "radio" name = "choice" value = "3"><%=board[2]%>
-	<input type = "radio" name = "choice" value = "4"><%=board[3]%>
-	<input type = "radio" name = "choice" value = "5"><%=board[4]%>
-	<input type = "radio" name = "choice" value = "6"><%=board[5]%>
-	<input type = "radio" name = "choice" value = "7"><%=board[6]%>
-	<input type = "radio" name = "choice" value = "8"><%=board[7]%>
-	<input type = "radio" name = "choice" value = "9"><%=board[8]%>
+<h2>Let's play a game!
+<br>
+Choose your space...
+</h2>
+
+<form action="/human_game" method="post">
+<table style = "width:5%"; rules="all">
+	<input type = "radio" name = "move" value = "0"><%=board[0]%>
+	<input type = "radio" name = "move" value = "1"><%=board[1]%>
+	<input type = "radio" name = "move" value = "2"><%=board[2]%>
+	<br>
+	<input type = "radio" name = "move" value = "3"><%=board[3]%>
+	<input type = "radio" name = "move" value = "4"><%=board[4]%>
+	<input type = "radio" name = "move" value = "5"><%=board[5]%>
+	<br>
+	<input type = "radio" name = "move" value = "6"><%=board[6]%>
+	<input type = "radio" name = "move" value = "7"><%=board[7]%>
+	<input type = "radio" name = "move" value = "8"><%=board[8]%>
+	<br>
 	<input type="submit">
+</table>	
 </form>
