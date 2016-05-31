@@ -3,17 +3,35 @@
 	<head>
 	<title>Tic-Tac-Toe Game</title>
 	</head>
-</html>
 
-
-Player one is <%=player_one%> and Player two is <%=player_two%>. 
+	<body>
+	<b><center><h2 style="font-family:comic; 
+	color:black; 
+	text-shadow: 2px 2px yellow;
+	font-size: 250%;
+	text-decoration: line-through
+	">TIC TAC TOE</h2></center></b>
+	
+<h3 style="font-family:Courier, fantasy">
+Player one is "<%=player_one%>" and Player two is "<%=player_two%>".
 <br>
-Player one choose a marker.
-<form action="/player_one_marker" method="post">
-	<select name="p1_marker">
+<br>
+Player one choose a marker.</h3>
+
+	<form action="/player_one_marker" method="post">
+		<select name="p1_marker">
   			<option value="X">X</option>
   			<option value="O">O</option>
-   			</select>
-			<br>
-	<input type="submit">
-</form>	
+   		</select>
+	<br>
+
+<h3 style="font-family:Courier,sans-serif">
+What is your name?</h3>
+	<input type="text" name="user_name">
+	<br>
+	<button type="submit" value="Start Game!"><span style="cursor:pointer">Let's Play!</button></span>
+
+	</form>
+	</body>	
+</html>
+

@@ -20,6 +20,7 @@ post '/player_one_marker' do
 	p1_marker = params[:p1_marker]
 	p2_marker = params[:p2_marker]
 	session[:board] = params[:board]
+	session[:name] = params[:user_name]
 
 		if p1_marker == "X"
 		   p2_marker = "O"
@@ -43,12 +44,18 @@ post '/player_one_marker' do
 			player_two = {:player_mode => Sequential.new, :marker => p2_marker}
 		end
 
+		# if session[:name] == session[:player_one]
+		# 	session[:name] = session[:player_two]
+		# else
+		# 	session[:name] = session[:player_one]
+		# end		
+
  session[:player_one] = player_one
  session[:player_two] = player_two
  session[:board] = create_new_board
  session[:current_player] = session[:player_one]	
 
- erb :play_game, :locals => {:board => session[:board], :p1_marker => p1_marker, :p2_marker => p2_marker}
+ erb :play_game, :locals => {:board => session[:board], :p1_marker => p1_marker, :p2_marker => p2_marker, :name => session[:name]}
 end 
 
 post '/play_game' do
@@ -79,7 +86,7 @@ get '/make_move' do
 	 	   session[:current_player] = session[:player_one]
 	 	end
 	 		
-	 	erb :play_game, :locals => {:board => session[:board], :p1_marker => session[:player_one][:marker], :p2_marker => session[:player_two][:marker]}	
+	 	erb :play_game, :locals => {:name => session[:name], :board => session[:board], :p1_marker => session[:player_one][:marker], :p2_marker => session[:player_two][:marker]}	
 	 end	
 
 get '/switchplayers' do
@@ -90,7 +97,7 @@ get '/switchplayers' do
 	else
 		session[:current_player] = session[:player_one]
 	end
-	erb :play_game, :locals => {:board => session[:board], :p1_marker => session[:player_one][:marker], :p2_marker => session[:player_two][:marker],:p1marker => session[:player_one], :player_two_marker => session[:player_two_marker], :board => session[:board]}
+	erb :play_game, :locals => {:name => session[:name], :board => session[:board], :p1_marker => session[:player_one][:marker], :p2_marker => session[:player_two][:marker]}
 end
 
 get '/switchhumanplayers' do
@@ -102,7 +109,7 @@ get '/switchhumanplayers' do
 	if session[:current_player][:player_mode] != "Human"
 		erb :play_game, :locals => {:player_one_marker => session[:player_one_marker], :player_two_marker => session[:player_two_marker], :board => session[:board]}
 	elsif session[:current_player] == session[:player_one]
-		erb :human_game, :locals => {:board => session[:board], :current_player => "Player one"}
+		erb :human_game, :locals => {:board => session[:board], :current_player => session[:name]}
 	else 
 		erb :human_game, :locals => {:board => session[:board], :current_player => "Player two"}
 	end

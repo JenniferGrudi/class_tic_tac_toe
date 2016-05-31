@@ -3,18 +3,22 @@
 	<head>
 	<title>Tic-Tac-Toe Game</title>
 	</head>
-</html>
 
-Player one has chosen <%=p1_marker%>, So Player two you will be <%=p2_marker%>.
-<br>
-<h4><b>GAME ON!</b></h4>
-<br>
+<body>
+	<b><center><h2 style="font-family:comic; 
+	color:black; 
+	text-shadow: 2px 2px yellow;
+	font-size: 250%;
+	text-decoration: line-through
+	">TIC TAC TOE</h2></center></b>	
 
-Here is the board:
+<h4 style="font-family:comic,sans-serif"><%=name%> has chosen <%=p1_marker%>, So Player two you will be <%=p2_marker%>.</h4>
+<center><h3 style="font-family:comic,fantasy;color:red; font-size:250%"><b>GAME ON!</b></h3></center>
+<br>
+<!-- <center><h3 style="font-family:comic,sans-serif">Here is the board:</h3></center> -->
 <br>
 <form action = "/play_game" method="post">
-	<table style = "width:5%"; rules="all">
-		
+	<center><b><table style = "width:300px; height:300px"; rules="all">
 		<tr>
  			<td><%=board[0]%></td>
  			<td><%=board[1]%></td>
@@ -33,11 +37,11 @@ Here is the board:
  			<td><%=board[8]%></td>
  		</tr>
  		
- 	</table> 
- <br>	
- 	<button type="submit" value="Start Game!">Your Move!</button>
+ 	</center></b></table> 
+ <br>
+ 	<button type="submit" value="Start Game!"><span style="cursor:pointer">Your Move!</button></span>
 <br> 
 </form>
-
-
+</body>
+</html>
 
