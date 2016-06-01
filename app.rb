@@ -44,12 +44,6 @@ post '/player_one_marker' do
 			player_two = {:player_mode => Sequential.new, :marker => p2_marker}
 		end
 
-		# if session[:name] == session[:player_one]
-		# 	session[:name] = session[:player_two]
-		# else
-		# 	session[:name] = session[:player_one]
-		# end		
-
  session[:player_one] = player_one
  session[:player_two] = player_two
  session[:board] = create_new_board
@@ -73,30 +67,36 @@ get '/make_move' do
 
 	 if game_over?(session[:board], session[:current_player][:marker])
 	 	if winner?(session[:board], session[:current_player][:marker])
-	 		"You have won #{session[:current_player][:marker]}!"
+
+	 		erb :player_one_winner, :locals => {:board => session[:board], :name => session[:name]}
+	 	elsif 
+	 		erb :player_two_winner, :locals => {:board => session[:board]}		
 	 	else
 	 		cats_game?(session[:board])
-	 		"It's a tie!"
+	 		erb :tie_game, :locals => {:board => session[:board]}
 	 	end	
 
 	 else
 	 	if session[:current_player] == session[:player_one]
 	 	   session[:current_player] = session[:player_two]
 	 	else
-	 	   session[:current_player] = session[:player_one]
+	 	   session[:current_player] = session[:player_two]
 	 	end
 	 		
 	 	erb :play_game, :locals => {:name => session[:name], :board => session[:board], :p1_marker => session[:player_one][:marker], :p2_marker => session[:player_two][:marker]}	
-	 end	
+	end	
+end
 
 get '/switchplayers' do
 	if session[:current_player][:player_mode] == "Human"
 		redirect '/switchhumanplayers'
-	elsif session[:current_player] == session[:player_one]
-		session[:current_player] = session[:player_two]
-	else
-		session[:current_player] = session[:player_one]
+		if session[:current_player] == session[:player_one]
+	   	   session[:current_player] = session[:player_two]
+		else
+	       session[:current_player] = session[:player_two]
+	    end   
 	end
+
 	erb :play_game, :locals => {:name => session[:name], :board => session[:board], :p1_marker => session[:player_one][:marker], :p2_marker => session[:player_two][:marker]}
 end
 
@@ -104,17 +104,19 @@ get '/switchhumanplayers' do
 	if session[:current_player] == session[:player_one]
 		session[:current_player] = session[:player_two]
 	else
-		session[:current_player] = session[:player_one]
+		session[:current_player] = session[:player_two]
 	end
+
 	if session[:current_player][:player_mode] != "Human"
-		erb :play_game, :locals => {:player_one_marker => session[:player_one_marker], :player_two_marker => session[:player_two_marker], :board => session[:board]}
-	elsif session[:current_player] == session[:player_one]
+		erb :play_game, :locals => {:p1_marker => session[:player_one_marker], :p2_marker => session[:player_two_marker], :board => session[:board]}
+		
+	elsif session[:current_player] == session[:player_one]             
 		erb :human_game, :locals => {:board => session[:board], :current_player => session[:name]}
 	else 
 		erb :human_game, :locals => {:board => session[:board], :current_player => "Player two"}
 	end
 end
-end	
+
 post '/human_game' do
 	session[:move] = params[:move].to_i
 	redirect '/make_move'

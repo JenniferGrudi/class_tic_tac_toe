@@ -12,25 +12,19 @@
 	text-decoration: line-through
 	">TIC TAC TOE</h2></center></b>
 	
-<h3 style="font-family:Courier, fantasy">
-Player one is "<%=player_one%>" and Player two is "<%=player_two%>".
+<h3 style="font-family:Courier">Player one is "<%=player_one%>" and Player two is "<%=player_two%>".</h3>
 <br>
-<br>
-Player one choose a marker.</h3>
-
+<h4 style = "font-family:Courier"> Player one choose a marker.</h4>
 	<form action="/player_one_marker" method="post">
 		<select name="p1_marker">
   			<option value="X">X</option>
   			<option value="O">O</option>
    		</select>
 	<br>
-
-<h3 style="font-family:Courier,sans-serif">
-What is your name?</h3>
+<h4 style="font-family:Courier">What is your name?</h4>
 	<input type="text" name="user_name">
 	<br>
 	<button type="submit" value="Start Game!"><span style="cursor:pointer">Let's Play!</button></span>
-
 	</form>
 	</body>	
 </html>

@@ -4,17 +4,15 @@
 	<title>Tic-Tac-Toe Game</title>
 	</head>
 
-<body>
+<body> 
 	<b><center><h2 style="font-family:comic; 
 	color:black; 
 	text-shadow: 2px 2px yellow;
 	font-size: 250%;
 	text-decoration: line-through
-	">TIC TAC TOE</h2></center></b>	
+	">TIC TAC TOE</h2></center></b>
 
-<h4 style="font-family:Courier"><%=name%> has chosen "<%=p1_marker%>", So Player two you will be "<%=p2_marker%>".</h4>
-<center><h3 style="font-family:courier,fantasy;color:red; font-size:250%"><b>GAME ON!</b></h3></center>
-<br>
+<center><h4 style="font-family:Courier">You have won <%session[:player_two][:marker]%>!</h4></center> 
 <form action = "/play_game" method="post">
 	<center><b><table style = "width:300px; height:300px"; rules="all">
 		<tr>
@@ -36,10 +34,5 @@
  		</tr>
  		
  	</center></b></table> 
- <br>
- 	<button type="submit" value="Start Game!"><span style="cursor:pointer">Your Move!</button></span>
-<br> 
-</form>
 </body>
-</html>
-
+</html> 
